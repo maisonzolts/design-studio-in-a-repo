@@ -1,0 +1,551 @@
+{
+  "account-manager": {
+    "trigger": "proactive account check-ins, stale client contact, or an account review",
+    "calls": "ea-protocol, status-update",
+    "deps": "Gmail, CRM",
+    "swap": "Replace Gmail/CRM adapters with your mail and customer systems.",
+    "steps": [
+      "Read active accounts and last-contact dates.",
+      "Draft one factual update per due account.",
+      "Save drafts only; require approval before sending.",
+      "Record approved status changes through status-update."
+    ]
+  },
+  "asset-population": {
+    "trigger": "a finished layout needs real logos, photography, icons, or motifs",
+    "calls": "identify-brand-identity, edit-design, paintbrush",
+    "deps": "InDesign or CMS, file/asset storage",
+    "swap": "Replace InDesign/CMS placement with the target design tool's asset API.",
+    "steps": [
+      "Read the copy and identify each asset slot's job.",
+      "Resolve approved assets from the brand profile.",
+      "Place assets without distorting, inventing, or silently cropping meaning.",
+      "Review each section visually through edit-design."
+    ]
+  },
+  "autosave": {
+    "trigger": "periodic save checkpoints or context-compaction risk",
+    "calls": "none",
+    "deps": "local filesystem",
+    "swap": "Point the state path at your own private, ignored store.",
+    "steps": [
+      "Summarize current task, decisions, blockers, and next action.",
+      "Write only to a private ignored state file.",
+      "Never include credentials or client data in a public tree."
+    ]
+  },
+  "brand-research-dossier": {
+    "trigger": "new-brand research, competitor analysis, or pre-mood-board discovery",
+    "calls": "reference-capture, identify-brand-identity",
+    "deps": "web research, optional browser automation",
+    "swap": "Use your preferred search and browser-capture tools.",
+    "steps": [
+      "Load the approved brief and known brand facts.",
+      "Research market, competitors, audience signals, and visual conventions.",
+      "Separate sourced facts from recommendations.",
+      "Deliver an internal dossier; do not publish it."
+    ]
+  },
+  "brandscript": {
+    "trigger": "brand story, positioning narrative, or foundational messaging",
+    "calls": "identify-brand-identity, copyeditor",
+    "deps": "brand profile",
+    "swap": "Use any structured brand repository that can supply approved facts.",
+    "steps": [
+      "Load the brand profile and interview inputs.",
+      "Draft who, what, why, how, audience, promise, and proof.",
+      "Keep claims evidence-based and voice-consistent.",
+      "Run copyeditor before review."
+    ]
+  },
+  "brief-machine": {
+    "trigger": "a contractor or teammate needs a production brief",
+    "calls": "delegation-oscillation, team-comms, copyeditor",
+    "deps": "Gmail, task manager",
+    "swap": "Replace Gmail/task creation with your team communication stack.",
+    "steps": [
+      "Resolve scope, owner, inputs, deliverables, deadline, and acceptance criteria.",
+      "Ask only for facts that cannot be looked up.",
+      "Draft the brief.",
+      "Route through team-comms; never send without the configured approval."
+    ]
+  },
+  "build-etransfer-invoice": {
+    "trigger": "an approved billing milestone requires an invoice draft",
+    "calls": "copyeditor",
+    "deps": "accounting provider, Stripe or bank transfer, optional InDesign",
+    "swap": "Replace payment rails and tax rules with your jurisdiction and accounting tool.",
+    "steps": [
+      "Verify the contract milestone and billing identity.",
+      "Select the approved payment rail and tax treatment.",
+      "Create a draft invoice from placeholders and read it back.",
+      "Require owner approval before issuing or sending."
+    ]
+  },
+  "captain": {
+    "trigger": "system status board, capability inventory, or build audit",
+    "calls": "inventory-counts-reconcile",
+    "deps": "Git, local project metadata",
+    "swap": "Use your issue tracker or project database as the status source.",
+    "steps": [
+      "Inventory system work only, not client records.",
+      "Classify blocked, broken, active, scheduled, parked, and complete.",
+      "Attach evidence for status claims.",
+      "Reconcile all counts before publishing the board."
+    ]
+  },
+  "colour-information": {
+    "trigger": "accurate HEX, RGB, CMYK, or spot-colour information is required",
+    "calls": "launch-indesign-mcp, palette-qa",
+    "deps": "InDesign colour engine",
+    "swap": "Use another colour-managed application; do not substitute naive formulas. scripts/brand_tokens.py can also read print-PDF vectors through optional PyMuPDF, which is not pinned in requirements.txt.",
+    "steps": [
+      "Read the source swatch through a colour-managed engine.",
+      "Record the engine-returned values and colour profile.",
+      "Do not invent spot-colour matches.",
+      "Pass digital combinations to palette-qa."
+    ]
+  },
+  "copyeditor": {
+    "trigger": "proofreading, correctness, consistency, or final editorial QA",
+    "calls": "none",
+    "deps": "none",
+    "swap": "No integration required.",
+    "steps": [
+      "Check facts and internal consistency.",
+      "Correct grammar, spelling, punctuation, and style.",
+      "Remove unsupported claims and generic AI phrasing.",
+      "Perform a clean final read after edits."
+    ]
+  },
+  "copywriting": {
+    "trigger": "new or rewritten marketing-page copy",
+    "calls": "brandscript, editorial-copy, copyeditor",
+    "deps": "brand profile and approved offer facts",
+    "swap": "Use your own brand repository and CMS.",
+    "steps": [
+      "Confirm audience, offer, page goal, and proof.",
+      "Build the message hierarchy.",
+      "Draft headlines, body, proof, objections, and calls to action.",
+      "Run editorial-copy then copyeditor."
+    ]
+  },
+  "delegation-oscillation": {
+    "trigger": "deciding whether the owner, agent, or teammate should perform work",
+    "calls": "brief-machine",
+    "deps": "task manager, team capacity data",
+    "swap": "Replace the task manager and rate/capacity inputs.",
+    "steps": [
+      "Identify the decision, required judgment, reversibility, and access.",
+      "Compare owner attention with delegation overhead.",
+      "Choose a responsible role, not a named person.",
+      "If delegated, hand off through brief-machine."
+    ]
+  },
+  "design-best-practices": {
+    "trigger": "any print, web, social, or hybrid visual task",
+    "calls": "edit-design, icon-selection",
+    "deps": "brand tokens and reference library",
+    "swap": "Point references at your own approved design doctrine.",
+    "steps": [
+      "Load medium-specific constraints and brand tokens.",
+      "Check hierarchy, composition, typography, spacing, contrast, and production constraints.",
+      "Record decisions that affect downstream build.",
+      "Return control to the production skill."
+    ]
+  },
+  "developwebsite": {
+    "trigger": "an approved web build specification is ready for implementation",
+    "calls": "web-conversion-doctrine, websitelayoutdesign, edit-design, asset-population",
+    "deps": "WordPress/Elementor, browser automation",
+    "swap": "Replace the CMS adapter with Webflow, a framework, or another builder.",
+    "steps": [
+      "Validate the approved build spec.",
+      "Build tokens and reusable components before pages.",
+      "Populate approved copy and assets.",
+      "Test responsive behavior, accessibility, forms, and analytics without publishing."
+    ]
+  },
+  "ea-protocol": {
+    "trigger": "session start, daily briefing, catch-up, or agenda setting",
+    "calls": "account-manager, sales-manager, project-pipeline",
+    "deps": "Google Calendar, Gmail, Motion, Stripe",
+    "swap": "Replace each read adapter independently; preserve read-before-analysis order.",
+    "steps": [
+      "Read calendar, inbox, task manager, and financial signals.",
+      "Present source-grounded sections sequentially.",
+      "Separate facts, risks, and recommendations.",
+      "Set the session agenda and hand production-ready work to project-pipeline."
+    ]
+  },
+  "ea-wrapup": {
+    "trigger": "session end, logging off, or explicit wrap-up",
+    "calls": "status-update, autosave",
+    "deps": "task manager, Slack, private state store",
+    "swap": "Replace Motion/Slack with your project and team tools.",
+    "steps": [
+      "Reconcile completed, open, delegated, and blocked work.",
+      "Draft task/status updates and a team summary.",
+      "Require approval for external communication.",
+      "Save private continuation state; never commit it."
+    ]
+  },
+  "edit-design": {
+    "trigger": "every visual edit to HTML, CSS, SVG, InDesign, or another design surface",
+    "calls": "design-best-practices, icon-selection",
+    "deps": "browser capture or InDesign",
+    "swap": "Use the target application's capture/export mechanism.",
+    "steps": [
+      "Name the section and intended visual change.",
+      "Inspect the current output.",
+      "Make one bounded change.",
+      "Capture and inspect the result.",
+      "Check neighboring sections and production constraints.",
+      "Repeat until the section passes."
+    ]
+  },
+  "editorial-copy": {
+    "trigger": "existing marketing copy needs stronger persuasion or clarity",
+    "calls": "copyeditor",
+    "deps": "none",
+    "swap": "No integration required.",
+    "steps": [
+      "Review clarity, voice, specificity, proof, objections, risk, and action.",
+      "Revise one sweep at a time.",
+      "Preserve approved facts.",
+      "Finish with copyeditor."
+    ]
+  },
+  "email-send": {
+    "trigger": "an approved email is ready for delivery preparation",
+    "calls": "email-workflow, copyeditor",
+    "deps": "Mailchimp or another ESP",
+    "swap": "Replace campaign creation and test-send adapters with your ESP.",
+    "steps": [
+      "Confirm written approval and audience consent.",
+      "Create a new campaign from approved HTML.",
+      "Run link, rendering, sender, and unsubscribe checks.",
+      "Send a test only; require explicit approval to schedule or send live."
+    ]
+  },
+  "email-workflow": {
+    "trigger": "newsletter, campaign, nurture, automation, template, or list-hygiene work",
+    "calls": "newsletter-build, email-send",
+    "deps": "ESP, CASL-compliant consent records",
+    "swap": "Replace the ESP while retaining consent, suppression, and approval gates.",
+    "steps": [
+      "Classify template, one-off campaign, sequence, automation, or hygiene.",
+      "Verify audience consent and suppression rules.",
+      "Route builds to newsletter-build and delivery to email-send.",
+      "Keep all live actions approval-gated."
+    ]
+  },
+  "health-coach": {
+    "trigger": "food, meal, nutrition, weight, body-composition, workout, or health check-in",
+    "calls": "scripts/health_validate.py, scripts/health_targets.py, scripts/health_log_lint.py, scripts/health_daily_union.py, scripts/health_usda.py, scripts/_health_meal_calc.py, scripts/burn_estimate.py",
+    "deps": "Python, PyYAML, sourced catalog; optional USDA_API_KEY",
+    "swap": "Replace fitness providers freely, but never replace the catalog provenance validator.",
+    "steps": [
+      "Load the private profile and today's private log.",
+      "Resolve every nutrition number to a catalog entry with an allowed source.",
+      "Validate the entire catalog before quoting or logging macros.",
+      "Lint meal logs and regenerate daily read models from their owned food and burn sources.",
+      "Calculate portions and recipe totals from catalog values only.",
+      "Compute targets with Mifflin-St Jeor for the profile's stated sex. Do not assume a sex.",
+      "Mark burn estimates as estimates and exclude them from measured-history training data.",
+      "Write private logs outside the public repo.",
+      "Do not diagnose or replace medical care."
+    ]
+  },
+  "hoarding-pipeline": {
+    "trigger": "asset intake starts or required materials are missing",
+    "calls": "identify-brand-identity, asset-population",
+    "deps": "Google Drive or file storage, Gmail",
+    "swap": "Replace storage and intake adapters.",
+    "steps": [
+      "Generate an asset checklist from deliverable requirements.",
+      "Catalog received files without embedding them in this repo.",
+      "Draft requests for missing material.",
+      "Start only reversible internal work until intake is complete."
+    ]
+  },
+  "icon-selection": {
+    "trigger": "a visual layout needs icons, motifs, or supporting graphics",
+    "calls": "edit-design",
+    "deps": "approved brand asset library",
+    "swap": "Use your own licensed icon library.",
+    "steps": [
+      "Define the communication job.",
+      "Choose one coherent visual grammar.",
+      "Check optical weight, stroke, scale, and licensing.",
+      "Place and review through edit-design."
+    ]
+  },
+  "identify-brand-identity": {
+    "trigger": "brand ingestion or the first brand-matched deliverable",
+    "calls": "palette-qa",
+    "deps": "file storage, web/browser access",
+    "swap": "Replace local-drive and web-source adapters.",
+    "steps": [
+      "Inventory supplied and public brand sources.",
+      "Extract approved logos, typography, colours, imagery rules, voice, and constraints.",
+      "Mark source and confidence for each fact.",
+      "Write a private brand profile outside this public template."
+    ]
+  },
+  "illustrator-batch-export": {
+    "trigger": "batch export of logos, icons, patterns, or artboards from Illustrator",
+    "calls": "copyeditor",
+    "deps": "Adobe Illustrator, ExtendScript, Windows or macOS",
+    "swap": "Use Illustrator actions or another vector application's scripting API.",
+    "steps": [
+      "Inspect the document and define export naming and formats.",
+      "Generate a reviewable .jsx file on disk; never hide it in an inline shell command.",
+      "Run against a copy or versioned source.",
+      "Verify counts, dimensions, colour mode, and untouched master artwork."
+    ]
+  },
+  "inventory-counts-reconcile": {
+    "trigger": "a document contains categorical counts, rollups, or a definition-of-done table",
+    "calls": "none",
+    "deps": "none",
+    "swap": "No integration required.",
+    "steps": [
+      "Recount from the itemized source.",
+      "Check every subtotal against its parent total.",
+      "Separate current, archived, experimental, and adjacent items.",
+      "Refuse publication while any count is unreconciled."
+    ]
+  },
+  "launch-indesign-mcp": {
+    "trigger": "InDesign automation is needed or its connection fails",
+    "calls": "scripts/idbridge.py, scripts/idcom.py",
+    "deps": "Windows, Adobe InDesign, pywin32; optional external UXP/MCP bridge",
+    "swap": "On non-Windows hosts, set INDESIGN_BRIDGE_URL and use the external UXP bridge or another InDesign automation host. Set SVETLANA_ID_TRANSPORT to com, http, or auto.",
+    "steps": [
+      "Try a real COM round-trip first.",
+      "If COM is unavailable, post to INDESIGN_BRIDGE_URL (default http://127.0.0.1:3000).",
+      "Treat a returned value as health; do not trust a status flag alone.",
+      "Never close or overwrite a document the agent did not open."
+    ]
+  },
+  "marketing-deliverable": {
+    "trigger": "any requested design or marketing deliverable",
+    "calls": "project-pipeline, design-best-practices, edit-design, copyeditor",
+    "deps": "depends on selected medium",
+    "swap": "Replace production adapters while preserving review gates.",
+    "steps": [
+      "Load brief, brand profile, copy, assets, and constraints.",
+      "Choose the medium-specific production skill.",
+      "Create internal drafts through edit-design.",
+      "Preflight copy, visual quality, and output specs.",
+      "Deliver for owner review, never publish automatically."
+    ]
+  },
+  "meeting-ingest": {
+    "trigger": "a meeting summary or transcript arrives",
+    "calls": "status-update, project-pipeline",
+    "deps": "Gmail, Motion or another note taker, CRM",
+    "swap": "Replace the meeting-note and CRM adapters.",
+    "steps": [
+      "Verify the meeting and participants from approved sources.",
+      "Extract decisions, commitments, dates, and status changes.",
+      "Update private project/brand context.",
+      "Draft follow-ups and route production work without sending."
+    ]
+  },
+  "newsletter-build": {
+    "trigger": "newsletter content and design production",
+    "calls": "email-workflow, edit-design, copyeditor, email-send",
+    "deps": "ESP, HTML email tooling",
+    "swap": "Replace Mailchimp with your ESP; retain rendering and consent checks.",
+    "steps": [
+      "Confirm audience, purpose, content, and approved template.",
+      "Build conservative email HTML.",
+      "Run copy, links, size, accessibility, and client rendering checks.",
+      "Hand approved output to email-send."
+    ]
+  },
+  "offload": {
+    "trigger": "work should be captured for later rather than done now",
+    "calls": "delegation-oscillation",
+    "deps": "Motion or another task manager",
+    "swap": "Replace task creation with your queue system.",
+    "steps": [
+      "Look up context before asking questions.",
+      "Specify outcome, inputs, constraints, acceptance criteria, and next review.",
+      "Create a draft task assigned to the configured owner role.",
+      "Do not silently schedule or message anyone."
+    ]
+  },
+  "opportunity-engine": {
+    "trigger": "revenue-move review or an approved deliverable/deal creates a follow-up opportunity",
+    "calls": "sales-manager, status-update",
+    "deps": "CRM",
+    "swap": "Replace the CRM query adapter.",
+    "steps": [
+      "Read current consented CRM records.",
+      "Identify evidence-based next offers or follow-ups.",
+      "Rank by fit and timing, not vanity metrics.",
+      "Draft actions only; commercial messages require consent and approval."
+    ]
+  },
+  "paintbrush": {
+    "trigger": "an approved layout needs brand colour and typography applied",
+    "calls": "identify-brand-identity, colour-information, edit-design, asset-population",
+    "deps": "InDesign or target design tool",
+    "swap": "Replace swatch/style APIs for the target application.",
+    "steps": [
+      "Load approved brand tokens.",
+      "Map semantic roles to named swatches and text styles.",
+      "Apply colour and typography only.",
+      "Review through edit-design, then hand off assets to asset-population."
+    ]
+  },
+  "palette-qa": {
+    "trigger": "a palette needs WCAG and light/dark usability checks",
+    "calls": "scripts/palette_qa.py",
+    "deps": "Python",
+    "swap": "Any standards-compliant contrast engine can replace the script.",
+    "steps": [
+      "Test every intended foreground/background pair.",
+      "Report normal and large-text thresholds.",
+      "Suggest hue-preserving alternatives without changing approved source colours.",
+      "Require human judgment before adopting alternatives."
+    ]
+  },
+  "printlayoutdesign": {
+    "trigger": "proposal, guide, magazine, card, sign, sheet, or other print layout",
+    "calls": "design-best-practices, edit-design, paintbrush, asset-population, launch-indesign-mcp",
+    "deps": "InDesign, Windows COM or UXP bridge, Playwright for measured HTML comps",
+    "swap": "Replace InDesign transfer with another professional layout engine.",
+    "steps": [
+      "Load brief, copy, brand tokens, references, and print specs.",
+      "Solve hierarchy and pagination in a measured comp.",
+      "Transfer approved geometry into InDesign in small paced calls.",
+      "Apply styles and assets.",
+      "Run structural and export preflight before review."
+    ]
+  },
+  "project-pipeline": {
+    "trigger": "a new internal or client deliverable starts",
+    "calls": "delegation-oscillation, identify-brand-identity, marketing-deliverable, ea-wrapup",
+    "deps": "task manager and private project state",
+    "swap": "Replace Motion/private state with your project system.",
+    "steps": [
+      "Classify the deliverable and responsible role.",
+      "Ingest brand, copy, assets, and constraints.",
+      "Route to the correct production skill.",
+      "Record review outcomes and remaining work in private state."
+    ]
+  },
+  "reference-capture": {
+    "trigger": "a URL, video, or HTML reference must be deconstructed",
+    "calls": "websitelayoutdesign, brand-research-dossier",
+    "deps": "Playwright/browser capture; optional video tools",
+    "swap": "Use another deterministic capture stack.",
+    "steps": [
+      "Capture the complete reference, including lazy-loaded states.",
+      "Record viewport, interaction, typography, spacing, motion, and components.",
+      "Separate observed facts from interpretation.",
+      "Write a build-oriented reference spec."
+    ]
+  },
+  "sales-manager": {
+    "trigger": "pipeline, forecast, lead-stage, or revenue-priority review",
+    "calls": "status-update, opportunity-engine",
+    "deps": "HubSpot or another CRM",
+    "swap": "Replace CRM reads and your private financial thresholds.",
+    "steps": [
+      "Read current CRM stages and confirmed amounts.",
+      "Separate confirmed, probable, and speculative pipeline.",
+      "Identify next actions with evidence.",
+      "Never include private financial records in this repository."
+    ]
+  },
+  "social-media-management": {
+    "trigger": "social account onboarding, monthly planning, production, or reporting",
+    "calls": "project-pipeline, edit-design, copyeditor",
+    "deps": "social scheduler, design tool, analytics",
+    "swap": "Replace platform-specific scheduling and reporting adapters.",
+    "steps": [
+      "Confirm account goals, audience, consent, and channel rules.",
+      "Plan covers and grid before full production.",
+      "Create and review copy/visuals.",
+      "Require explicit approval before scheduling or publishing.",
+      "Report outcomes against business goals."
+    ]
+  },
+  "status-update": {
+    "trigger": "a lead, client, deal, or project gains a status-relevant fact",
+    "calls": "sales-manager",
+    "deps": "HubSpot or another CRM",
+    "swap": "Replace CRM writes with your system's reviewed upsert.",
+    "steps": [
+      "Extract only explicit status facts.",
+      "Read the existing record first.",
+      "Prepare a minimal patch with provenance.",
+      "Require approval before writing external CRM data."
+    ]
+  },
+  "svetlana-slackbot-connect": {
+    "trigger": "the local Slack bot must start, reconnect, or be checked",
+    "calls": "team-comms",
+    "deps": "Slack, Node or Python bot runtime",
+    "swap": "Replace Slack with Teams, Discord, or another approved channel.",
+    "steps": [
+      "Check whether the bot is already healthy.",
+      "Start one supervised instance if absent.",
+      "Verify identity and channel allowlists.",
+      "Never post during a connectivity check."
+    ]
+  },
+  "tagline": {
+    "trigger": "tagline, slogan, motto, or short brand line",
+    "calls": "brandscript, copyeditor",
+    "deps": "brand profile",
+    "swap": "No integration required.",
+    "steps": [
+      "Load positioning, audience, promise, voice, and naming constraints.",
+      "Explore distinct strategic territories.",
+      "Remove generic, unprovable, and category-clich\u00e9 options.",
+      "Present a short rationale and run copyeditor."
+    ]
+  },
+  "team-comms": {
+    "trigger": "a teammate needs a routine brief or an approved internal message",
+    "calls": "brief-machine",
+    "deps": "Slack or Gmail, private team roster",
+    "swap": "Replace channel adapters and roster source.",
+    "steps": [
+      "Resolve the recipient through an allowlisted role roster.",
+      "Write as Svetlana, never impersonating the owner.",
+      "Send only pre-authorized routine briefs; draft everything else.",
+      "Never use this path for clients or vendors."
+    ]
+  },
+  "web-conversion-doctrine": {
+    "trigger": "before any website layout or build",
+    "calls": "websitelayoutdesign, developwebsite",
+    "deps": "none",
+    "swap": "Replace reference doctrine with your approved web standards.",
+    "steps": [
+      "Check page intent, audience stage, and conversion path.",
+      "Apply legitimate information architecture, proof, accessibility, SEO, analytics, and form principles.",
+      "Return constraints to the execution skill."
+    ]
+  },
+  "websitelayoutdesign": {
+    "trigger": "website wireframe, page layout, or approved web-design comp",
+    "calls": "web-conversion-doctrine, design-best-practices, edit-design, developwebsite",
+    "deps": "HTML/CSS, Playwright; optional InDesign transfer",
+    "swap": "Use Figma or another measured layout surface if it can emit a build spec.",
+    "steps": [
+      "Load approved copy, brand tokens, page goal, and references.",
+      "Build a measured responsive comp.",
+      "Review each section through edit-design.",
+      "Emit a machine-readable build spec.",
+      "Hand approved output to developwebsite."
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "indesign": {
+      "command": "node",
+      "args": [
+        "<INDESIGN_MCP_ROOT>/src/index.js"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@0.0.83"
+      ]
+    },
+    "pinecone": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@pinecone-database/mcp@0.3.0"
+      ],
+      "env": {
+        "PINECONE_API_KEY": "${PINECONE_API_KEY}"
+      }
+    }
+  }
+}
